@@ -11,7 +11,8 @@ const FlickrController = {
         res.json(response.data)
     },
     async getPublicPhoto(req, res) {
-        var path = `/feeds/photos_public.gne?format=json&nojsoncallback=1`;
+        var path = `/feeds/photos_public.gne?format=json&nojsoncallback=1&per_page=10&page=1`;
+        if (req.query.keyword !== undefined || req.query.keyword != "") path += `&tags=${req.query.keyword}`;
         const response = await axios.get(path);
         res.json(response.data)
     }

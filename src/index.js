@@ -4,8 +4,8 @@ import routes from '../routes/router';
 const app = express();
 
 
-let whiteList = [
-    'http://localhost:5000'
+/* let whiteList = [
+    'http://localhost:3001'
 ];
 
 
@@ -20,8 +20,8 @@ let corsOption = {
 }
 
 app.use(cors(corsOption));
-
-
+ */
+app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use('/', routes);
